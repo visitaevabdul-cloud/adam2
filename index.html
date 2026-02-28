@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case: Adam Bogatyrev</title>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
+    <style>
+        :root {
+            --house-blue: #0a1118;
+            --whiteboard: #f4f4f4;
+            --red-alert: #990000;
+            --ink: #1a1a1a;
+        }
+
+        body {
+            background-color: var(--house-blue);
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            color: #ddd;
+        }
+
+        /* Плавный переход */
+        #fireworks-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+            transition: opacity 2s ease-in-out, visibility 2s;
+        }
+
+        #main-content {
+            opacity: 0;
+            visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: opacity 2.5s ease-in-out;
+            padding: 20px;
+        }
+
+        .office-wall {
+            width: 100%;
+            max-width: 850px;
+            background: #1e262e;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+        }
+
+        .whiteboard {
+            background: var(--whiteboard);
+            color: var(--ink);
+            padding: 40px;
+            border-radius: 4px;
+            font-family: 'Courier Prime', monospace;
+            position: relative;
+            border: 10px solid #ccc;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-transform: uppercase;
+            border-bottom: 3px solid var(--red-alert);
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            color: var(--red-alert);
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .medical-entry {
+            margin-bottom: 8px;
+            font-size: 1.1em;
+            line-height: 1.4;
+        }
+
+        .medical-entry::before {
+            content: ">> ";
+            color: #888;
+        }
+
+        .final-verdict {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--red-alert);
+            margin: 30px 0;
+            border: 4px dashed var(--red-alert);
+            padding: 10px;
+            transform: rotate(-1deg);
+        }
+
+        .audio-player-zone {
+            margin-top: 25px;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        audio {
+            width: 100%;
+            filter: invert(100%); /* Делает стандартный плеер темным */
+        }
+
+        .cane-decor {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 4em;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="fireworks-container"></div>
+
+    <div id="main-content">
+        <div class="office-wall">
+            <div class="whiteboard">
+                <div class="cane-decor">🦯</div>
+                <h1>Medical Case: Богатырев Адам</h1>
+                
+                <div class="section">
+                    <span class="section-title">Анамнез (Observations):</span>
+                    <div class="medical-entry">Объект проявляет признаки аномального превосходства.</div>
+                    <div class="medical-entry">Зафиксирована аллергия на стандартные решения.</div>
+                    <div class="medical-entry">Генетическая предрасположенность к успеху (100% совпадение).</div>
+                </div>
+
+                <div class="section">
+                    <span class="section-title">Результаты анализов (Lab Results):</span>
+                    <div class="medical-entry">Уровень IQ: Выше измеримого диапазона.</div>
+                    <div class="medical-entry">Харизма: Заразная (рекомендуется карантин для конкурентов).</div>
+                    <div class="medical-entry">Интуиция: Работает точнее, чем МРТ.</div>
+                </div>
+
+                <div class="section">
+                    <span class="section-title">Дифференциальный диагноз:</span>
+                    <div class="medical-entry">Исключен: "Обычный человек".</div>
+                    <div class="medical-entry">Исключен: "Смирение с трудностями".</div>
+                    <div class="medical-entry">Подтвержден: "Абсолютный лидер".</div>
+                </div>
+
+                <div class="final-verdict">ДИАГНОЗ: РОЖДЕН ПОБЕЖДАТЬ</div>
+
+                <p style="font-style: italic; margin-top: 20px;">
+                    "Адам, помни: все лгут, кроме твоего таланта. Не трать время на объяснения, просто будь лучшим. Это мой окончательный рецепт." 
+                    <br><strong>— Г. Хаус</strong>
+                </p>
+            </div>
+
+            <div class="audio-player-zone">
+                <p style="color: #4CAF50; font-weight: bold; margin-bottom: 10px;">🔊 АУДИО-ТЕРАПИЯ ДЛЯ АДАМА:</p>
+                <audio controls id="main-audio">
+                    <source src="song.mp3" type="audio/mpeg">
+                    Твой браузер не видит музыку. Проверь путь к файлу song.mp3!
+                </audio>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById('fireworks-container');
+        const content = document.getElementById('main-content');
+        const audio = document.getElementById('main-audio');
+
+        const fireworks = new Fireworks.Fireworks(container, {
+            autoresize: true,
+            opacity: 0.5,
+            acceleration: 1.02,
+            friction: 0.97,
+            gravity: 1.5,
+            particles: 60,
+            traceLength: 3,
+            explosion: 6,
+            intensity: 40,
+            flickering: 50,
+            hue: { min: 0, max: 360 },
+            delay: { min: 15, max: 30 },
+            rocketsPoint: { min: 50, max: 50 },
+            lineWidth: { explosion: { min: 1, max: 3 } }
+        });
+
+        fireworks.start();
+
+        // Таймер для перехода
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                // Плавное исчезновение салютов
+                container.style.opacity = '0';
+                
+                // Плавное появление контента
+                setTimeout(() => {
+                    container.style.visibility = 'hidden';
+                    content.style.visibility = 'visible';
+                    content.style.opacity = '1';
+                    document.body.style.overflow = 'auto';
+                    
+                    // Попытка автозапуска (может блокироваться браузером)
+                    audio.play().catch(() => console.log("Браузер ждет клика для музыки"));
+                }, 1000); 
+
+            }, 5000); // 5 секунд салюта
+        });
+    </script>
+</body>
+</html>
